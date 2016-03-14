@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: MADNOX\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-03-04 09:15-0400\n"
+"PO-Revision-Date: 2016-03-13 19:13-0400\n"
 "Last-Translator: bsoriano\n"
 "Language-Team: bsoriano\n"
 "Language: es\n"
@@ -2331,6 +2331,34 @@ msgctxt "#31734"
 msgid "Use QuickList instead of default shutdown menu"
 msgstr "Usar QuickList en lugar del menú de apagado predeterminado"
 
+msgctxt "#31437"
+msgid "Show Playlist"
+msgstr "Mostrar Lista de Reproducción"
+
+msgctxt "#31438"
+msgid "         •  Show 10 Tracks"
+msgstr "         •  Mostrar 10 Canciones"
+
+msgctxt "#31439"
+msgid "         •  Move Down"
+msgstr "         •  Mover hacia Abajo"
+
+msgctxt "#31440"
+msgid "         •  fade Background"
+msgstr "         •  difuminar Fondo"
+
+msgctxt "#31441"
+msgid "         •  Show Numbers"
+msgstr "         •  Mostrar Números"
+
+msgctxt "#31442"
+msgid "         •  Rating/Codec Switch"
+msgstr "         •  Cambiar entre Valoración/Codec"
+
+msgctxt "#31443"
+msgid "         •  Genre Text/Icons Switch"
+msgstr "         •  Cambiar entre Texto de Género/Íconos"
+
 # ##########################################################################
 # skinshortcuts Locals start here
 msgctxt "#31742"
@@ -3198,6 +3226,10 @@ msgstr "Indicador de continuar"
 msgctxt "#31999"
 msgid "Login"
 msgstr "Inicio de sesión"
+
+#~ msgctxt "#31439"
+#~ msgid "         •  Move to next Track Info"
+#~ msgstr "         •  Mover a la Información de la próxima Canción"
 
 #~ msgctxt "#31340"
 #~ msgid "  •  Hide Time/Progress/Icons"

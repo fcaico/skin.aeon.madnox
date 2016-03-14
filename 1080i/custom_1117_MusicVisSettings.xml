@@ -176,6 +176,52 @@
 					<onclick>Skin.Reset(ThirdMusicVizLayout)</onclick>
 					<selected>Skin.HasSetting(AltMusicVizLayout)</selected>
 				</control>
+				<control type="radiobutton" id="17109">
+					<label>31437</label>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutPlaylist)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutPlaylist)</selected>
+				</control>
+				<control type="radiobutton" id="17110">
+					<label>31438</label>
+					<enable>Skin.HasSetting(AltMusicVizLayoutPlaylist)</enable>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutPlaylistTen)</onclick>
+					<onclick>Skin.Reset(AltMusicVizLayoutPlaylistNext)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</selected>
+					<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="17111">
+					<label>31439</label>
+					<enable>Skin.HasSetting(AltMusicVizLayoutPlaylist)</enable>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutPlaylistNext)</onclick>
+					<onclick>Skin.Reset(AltMusicVizLayoutPlaylistTen)</onclick>
+					<onclick>Skin.Reset(AltMusicVizLayoutNext)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutPlaylistNext)</selected>
+					<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="17112">
+					<label>31440</label>
+					<enable>Skin.HasSetting(AltMusicVizLayoutPlaylist)</enable>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutPlaylistFadeBG)</onclick>
+					<selected>!Skin.HasSetting(AltMusicVizLayoutPlaylistFadeBG)</selected>
+					<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="17113">
+					<label>31441</label>
+					<enable>Skin.HasSetting(AltMusicVizLayoutPlaylist)</enable>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutPlaylistNr)</onclick>
+					<selected>!Skin.HasSetting(AltMusicVizLayoutPlaylistNr)</selected>
+					<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+				</control>
 				<control type="radiobutton" id="17101">
 					<label>31338</label>
 					<include>Objects_CommonSettingsButton</include>
@@ -184,10 +230,29 @@
 					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
 					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
 				</control>
+				<control type="radiobutton" id="17114">
+					<label>31442</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutRating)</onclick>
+					<selected>!Skin.HasSetting(AltMusicVizLayoutRating)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayoutInfo)</visible>
+				</control>
+				<control type="radiobutton" id="17115"><!--LAST ID-->
+					<label>31443</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutGenre)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutGenre)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+					<visible>Skin.HasSetting(AltMusicVizLayoutInfo)</visible>
+				</control>
 				<control type="radiobutton" id="17105">
 					<label>31339</label>
 					<include>Objects_CommonSettingsButton</include>
 					<onclick>Skin.ToggleSetting(AltMusicVizLayoutNext)</onclick>
+					<onclick>Skin.Reset(AltMusicVizLayoutPlaylistNext)</onclick>
 					<selected>Skin.HasSetting(AltMusicVizLayoutNext)</selected>
 					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
 					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
@@ -271,6 +336,23 @@
 					<enable>Skin.HasSetting(ThirdMusicVizLayout)</enable>
 					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
 				</control>
+				<control type="radiobutton" id="18203">
+					<label>  •  Record Player</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(ThirdMusicVizRecordPlayer)</onclick>
+					<selected>Skin.HasSetting(ThirdMusicVizRecordPlayer)</selected>
+					<enable>Skin.HasSetting(ThirdMusicVizLayout)</enable>
+					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="18205">
+					<label>  •  Show Visualisation</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(ThirdMusicVizShowViz)</onclick>
+					<selected>Skin.HasSetting(ThirdMusicVizShowViz)</selected>
+					<enable>Skin.HasSetting(ThirdMusicVizLayout) + Skin.HasSetting(HideVizBG)</enable>
+					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
+				</control>
+				
 				<control type="label" id="430">
 					<width>600</width>
 					<height>60</height>

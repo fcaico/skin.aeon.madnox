@@ -2245,6 +2245,35 @@ msgctxt "#31734"
 msgid "Use QuickList instead of default shutdown menu"
 msgstr ""
 
+msgctxt "#31437"
+msgid "Show Playlist"
+msgstr ""
+
+msgctxt "#31438"
+msgid "         •  Show 10 Tracks"
+msgstr ""
+
+msgctxt "#31439"
+msgid "         •  Move Down"
+msgstr ""
+
+msgctxt "#31440"
+msgid "         •  fade Background"
+msgstr ""
+
+msgctxt "#31441"
+msgid "         •  Show Numbers"
+msgstr ""
+
+msgctxt "#31442"
+msgid "         •  Rating/Codec Switch"
+msgstr ""
+
+msgctxt "#31443"
+msgid "         •  Genre Text/Icons Switch"
+msgstr ""
+
+
 ###########################################################################
 # skinshortcuts Locals start here
 

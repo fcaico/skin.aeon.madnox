@@ -35,6 +35,7 @@
 	</variable>
 	<variable name="GlobalCaseVar">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
@@ -191,7 +192,7 @@
 		<value condition="[SubString(ListItem.filename,PDTV) | SubString(ListItem.filename,sdtv) | SubString(ListItem.filename,sd tv)]">sdtv</value>
 		<value condition="[SubString(ListItem.Filename,hdtv) | SubString(ListItem.Filename,hd tv)]">hdtv</value>
 		<value condition="[SubString(ListItem.Filename,hddvd) | SubString(ListItem.Filename,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip)] + [SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>
+		<value condition="[ListItem.IsStereoscopic | SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d) | SubString(ListItem.Filename,3dbd) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>	<!-- changed by s2k -->
 		<value condition="[SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip)]">bluray</value>
 		<value condition="SubString(ListItem.Filename,dvb)">dvb</value>
 		<value condition="SubString(ListItem.Filename,web-dl)">web-dl</value>
@@ -202,7 +203,7 @@
 		<value condition="[SubString(Player.Filenameandpath,PDTV) | SubString(Player.Filenameandpath,sdtv)]">sdtv</value>
 		<value condition="SubString(Player.Filenameandpath,hdtv)">hdtv</value>
 		<value condition="[SubString(Player.Filenameandpath,hddvd) | SubString(Player.Filenameandpath,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)] + [SubString(Player.Filenameandpath,.3D.) | SubString(Player.Filenameandpath,3DBD)]">bluray3d</value>
+		<value condition="[ListItem.IsStereoscopic | SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d) | SubString(ListItem.Filename,3dbd) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>   <!-- changed by s2k -->
 		<value condition="[SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)]">bluray</value>
 		<value condition="SubString(Player.Filenameandpath,dvb)">dvb</value>
 		<value condition="SubString(Player.Filenameandpath,web-dl)">web-dl</value>
@@ -444,7 +445,7 @@
 		<value condition="SubString(ListItem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0) | StringCompare(ListItem.mpaa,rated 0">FSK-0</value>
+		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0) | StringCompare(ListItem.mpaa,rated 0)">FSK-0</value>
 		<value condition="SubString(ListItem.mpaa,Germany:6) |  SubString(ListItem.mpaa,ab 6) | !SubString(ListItem.mpaa,16) + SubString(ListItem.mpaa,6) | SubString(ListItem.mpaa,FSK 6) | StringCompare(ListItem.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12) | SubString(ListItem.mpaa,12) | SubString(ListItem.mpaa,FSK 12) | StringCompare(ListItem.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16) | SubString(ListItem.mpaa,16) | SubString(ListItem.mpaa,FSK 16) | StringCompare(ListItem.mpaa,FSK:16)">FSK-16</value>
@@ -1301,8 +1302,8 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),PVR) + PVR.HasNonRecordingTimer">$LOCALIZE[19157] $INFO[PVR.NextRecordingDateTime, [B][COLOR=white], [/COLOR][/B]$LOCALIZE[19126] - ] • $INFO[PVR.NextRecordingTitle, [B][COLOR=white],[/COLOR][/B]]$INFO[PVR.NextRecordingChannel, - [B][COLOR=white],[/COLOR][/B]]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),PVR)">$INFO[Pvr.BackendChannels,[COLOR grey]$LOCALIZE[19019]:[/COLOR] ]$INFO[Pvr.BackendRecordings,[COLOR grey]  •  $LOCALIZE[19163]:[/COLOR] ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),Weather)">$INFO[Weather.Location,[COLOR grey],:[/COLOR] ]$INFO[Weather.Conditions]</value>
-		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Programs)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[24001]:[/COLOR] $INFO[Window(Home).Property(RandomAddon.Count)] [COLOR grey]  •  $LOCALIZE[1036]:[/COLOR] $INFO[Window(home).Property(favourite.count)]</value>
-		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Favourites)">[COLOR grey]$LOCALIZE[31509]:[/COLOR] $INFO[Window(Home).Property(favourite.count)]$INFO[Window(Home).Property(favourite.1.name),  •  [COLOR grey]$LOCALIZE[31334]:[/COLOR] ]</value>
+		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Programs)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[24001]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalProgramAddons)] [COLOR grey]  •  $LOCALIZE[1036]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalFavourites)]</value>
+		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Favourites)">[COLOR grey]$LOCALIZE[31509]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalFavourites)]$INFO[Window(Home).Property(favourite.1.name),  •  [COLOR grey]$LOCALIZE[31334]:[/COLOR] ]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),System uptime)">[COLOR grey]$LOCALIZE[12390]:[/COLOR] $INFO[System.Uptime]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Next aired)">[COLOR grey]$LOCALIZE[31819]:[/COLOR] $INFO[Window(Home).Property(NextAired.Total)][COLOR grey]  •  $LOCALIZE[33006]:[/COLOR] $INFO[Window(Home).Property(NextAired.TodayTotal)]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),System info)">$INFO[System.memory(used.percent),[COLOR grey]$LOCALIZE[31309][/COLOR] ]$INFO[System.CPUUsage(used.percent),[COLOR grey] • $LOCALIZE[13271][/COLOR] ]</value>
@@ -1363,8 +1364,8 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),TV library)">[COLOR grey]$LOCALIZE[20360]:[/COLOR] $INFO[Window(Home).Property(Episodes.Count)][COLOR grey]   •   $LOCALIZE[16101]:[/COLOR] $INFO[Window(Home).Property(Episodes.UnWatched)]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),Music library)">[COLOR grey]$LOCALIZE[132]:[/COLOR] $INFO[Window(Home).Property(Music.AlbumsCount)][COLOR grey]   •   $LOCALIZE[134]:[/COLOR] $INFO[Window(Home).Property(Music.SongsCount)]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),Weather)">[COLOR grey]$LOCALIZE[402]: [/COLOR]$INFO[Window(weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits][COLOR grey] • $LOCALIZE[406]:[/COLOR] $INFO[Window(weather).Property(Current.Humidity)]</value>
-		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Programs)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[24001]:[/COLOR] $INFO[Window(Home).Property(RandomAddon.Count)] [COLOR grey]  •  $LOCALIZE[1036]:[/COLOR] $INFO[Window(home).Property(favourite.count)]</value>
-		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Favourites)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[31509]:[/COLOR] $INFO[Window(Home).Property(favourite.count)]</value>
+		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Programs)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[24001]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalProgramAddons)] [COLOR grey]  •  $LOCALIZE[1036]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalFavourites)]</value>
+		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Favourites)">[COLOR grey]$LOCALIZE[20161] $LOCALIZE[31509]:[/COLOR] $INFO[Window(Home).Property(SkinHelper.TotalFavourites)]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),Next aired)">[COLOR grey]$LOCALIZE[31819]:[/COLOR] $INFO[Window(Home).Property(NextAired.Total)][COLOR grey]  •  $LOCALIZE[33006]:[/COLOR] $INFO[Window(Home).Property(NextAired.TodayTotal)]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),System info)">$INFO[System.memory(used.percent),[COLOR grey]$LOCALIZE[31309][/COLOR] ]$INFO[System.CPUUsage(used.percent),[COLOR grey] • $LOCALIZE[13271][/COLOR] ]</value>
 		<value condition="Stringcompare(Container(9000).ListItem.Property(InfoLine),System uptime)">[COLOR grey]$LOCALIZE[12390]:[/COLOR] $INFO[System.Uptime]</value>
@@ -3594,7 +3595,7 @@
 		<value condition="[SubString(Container(5801).ListItem.filename,PDTV) | SubString(Container(5801).ListItem.filename,sdtv) | SubString(Container(5801).ListItem.filename,sd tv)]">sdtv</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,hdtv) | SubString(Container(5801).ListItem.Filename,hd tv)]">hdtv</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,hddvd) | SubString(Container(5801).ListItem.Filename,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)] + [SubString(Container(5801).ListItem.Filename,.3D.) | SubString(Container(5801).ListItem.Filename,3DBD)]">bluray3d</value>
+		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)] + [SubString(Container(5801).ListItem.Filename,.3D.) | SubString(Container(5801).ListItem.Filename,3DBD) | SubString(Container(5801).ListItem.Filename,3d)]">bluray3d</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)]">bluray</value>
 		<value condition="SubString(Container(5801).ListItem.Filename,dvb)">dvb</value>
 		<value condition="SubString(Container(5801).ListItem.Filename,web-dl)">web-dl</value>
@@ -3725,6 +3726,7 @@
 	</variable> -->
 	<variable name="FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
@@ -3744,6 +3746,7 @@
 		<value>common/discart/$INFO[ListItem.VideoResolution]p.png</value>
 	</variable>
 	<variable name="FakeDischand">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhand.png</value>
@@ -3763,6 +3766,7 @@
 		<value>common/discart/$INFO[ListItem.VideoResolution]phand.png</value>
 	</variable>
 	<variable name="FakeDischandcolor">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhandcolor.png</value>
@@ -3788,6 +3792,7 @@
 		<value condition="Skin.HasSetting(WallLargeMovieInfoDelay_30)">30 seconds</value>
 	</variable>
 	<variable name="BoxSetFakeDiscArtOverlay">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
@@ -4672,23 +4677,12 @@
 		<value condition="StringCompare(Skin.String(Widget.CaseOnInfo),Match widget panel)">$LOCALIZE[31822]</value>
 		<value>$LOCALIZE[231]</value>
 	</variable>
-	<variable name="HomeWidgetInfoCase">
-		<value condition="ListItem.IsStereoscopic | ListItem.Property(IsStereoscopic)">3d.png</value>
-		<value condition="SubString(ListItem.filename,hdtv) | SubString(ListItem.filename,hd tv)">hdtv.png</value>
-		<value condition="SubString(ListItem.filename,web-dl)">webtv.png</value>
-		<value condition="SubString(ListItem.filename,4k)">4k.png</value>
-		<value condition="!IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
-		<value condition="!IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
-		<value condition="IsEmpty(ListItem.VideoResolution) + !IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
-		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Trailer)">trailers.png</value>
-		<value>p.png</value>
-	</variable>
 	<variable name="HomeWidgetOnInfoCaseVar">
 		<value condition="StringCompare(Skin.String(Widget.CaseOnInfo),Glass)">homewidgets/glass/portrait.png</value>
 		<value condition="StringCompare(Skin.String(Widget.CaseOnInfo),Case)">homewidgets/case/poster/$VAR[HomeWidgetInfoCase]</value>
 		<value condition="StringCompare(Skin.String(Widget.CaseOnInfo),BD Case)">homewidgets/bdcase/poster/$VAR[HomeWidgetInfoCase]</value>
 		<value condition="StringCompare(Skin.String(Widget.CaseOnInfo),Clear Case)">homewidgets/clearcase/poster/$VAR[HomeWidgetInfoCase]</value>
-
+		<value></value>
 	</variable>
 	<variable name="WidgetListInfoLabelVar">
 		<value condition="StringCompare(Skin.String(Widget.ListInfo),Always On)">$LOCALIZE[31821]</value>
@@ -4749,14 +4743,27 @@
 	</include>
 	<!-- Widget Artwork -->
 	<variable name="HomeWidgetPortraitCaseVar">
-		<value condition="ListItem.IsStereoscopic | ListItem.Property(IsStereoscopic)">3d.png</value>
-		<value condition="SubString(ListItem.filename,hdtv) | SubString(ListItem.filename,hd tv)">hdtv.png</value>
-		<value condition="SubString(ListItem.filename,web-dl)">webtv.png</value>
-		<value condition="SubString(ListItem.filename,4k)">4k.png</value>
+		<value condition="ListItem.IsStereoscopic | SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
+		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd.)">hddvd.png</value>
+		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">hddvd.png</value>
+		<!--<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>-->
+		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,.web-dl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEB-DL.) | SubString(ListItem.Filename, web-dl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.4K.) | SubString(ListItem.Filename,.4k.)">4k.png</value>
+		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">4k.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
 		<value condition="!IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
 		<value condition="IsEmpty(ListItem.VideoResolution) + !IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
-		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Trailer)">trailers.png</value>
+		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + [!IsEmpty(ListItem.Trailer) | SubString(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
 		<value>p.png</value>
 	</variable>
 	<variable name="HomeWidgetPosterVar">
@@ -4793,7 +4800,11 @@
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<variable name="HomeWidgetFakeDiscArtVar">
-		<value condition="ListItem.IsStereoscopic">common/discart/3d.png</value>
+		<value condition="ListItem.IsStereoscopic | SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
+		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
 		<value condition="IsEmpty(ListItem.Artist) + IsEmpty(ListItem.AlbumArtist) + IsEmpty(ListItem.Album)">$INFO[ListItem.VideoResolution,common/discart/,p.png]</value>
 	</variable>
 	<variable name="HomeWidgetCharacterArtVar">
@@ -4824,9 +4835,18 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidgetCast">
-		<value condition="StringCompare(Window(Home).Property(Widget.Type),movies)">plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[Window(Home).Property(Widget.Title)]</value>
-		<value condition="StringCompare(Window(Home).Property(Widget.Type),episodes)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[Window(Home).Property(Widget.SubTitle)]</value>
-		<value condition="StringCompare(Window(Home).Property(Widget.Type),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),movies) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),movies) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),episodes) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;episode=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),episodes) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.SubTitle)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),tvshows) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),tvshows) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),movies)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),movies)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),episodes)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;episode=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),episodes)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.SubTitle)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.DBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.Title)]</value>
 	</variable>
 
 	<!-- Featured dialog variables -->

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: MADNOX\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-02-29 09:29+0100\n"
+"PO-Revision-Date: 2016-03-12 11:46+0100\n"
 "Last-Translator: XBMC Translation Team\n"
 "Language-Team: schimi2k\n"
 "Language: de\n"
@@ -2321,6 +2321,34 @@ msgctxt "#31734"
 msgid "Use QuickList instead of default shutdown menu"
 msgstr ""
 "Benutze \"Schnell Navigations-Liste\" anstelle des Standard \"Power\" Menüs"
+
+msgctxt "#31437"
+msgid "Show Playlist"
+msgstr "Zeige Wiedergabeliste"
+
+msgctxt "#31438"
+msgid "         •  Show 10 Tracks"
+msgstr "         •  10 Tracks anzeigen"
+
+msgctxt "#31439"
+msgid "         •  Move Down"
+msgstr "         •  Schiebe nach unten"
+
+msgctxt "#31440"
+msgid "         •  fade Background"
+msgstr "         •  Durchsichtiger Hintergrund"
+
+msgctxt "#31441"
+msgid "         •  Show Numbers"
+msgstr "         •  Zeige Nummern"
+
+msgctxt "#31442"
+msgid "         •  Rating/Codec Switch"
+msgstr "         •  Wechsle Bewertung/Codec"
+
+msgctxt "#31443"
+msgid "         •  Genre Text/Icons Switch"
+msgstr "         •  Wechsle Genre Text/Icons"
 
 # ##########################################################################
 # skinshortcuts Locals start here
