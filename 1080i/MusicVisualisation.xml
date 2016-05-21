@@ -7,7 +7,7 @@
 	<onload>RunScript(script.artistslideshow)</onload>
 	<onload condition="!Skin.HasSetting(AltMusicVizLayout) + !Skin.HasSetting(ThirdMusicVizLayout)">RunScript(script.cu.lrclyrics)</onload>
 	<onload>AlarmClock(MusicInfoRotation,ActivateWindow(1156),00:15,silent,loop)</onload>
-    <onunload>CancelAlarm(MusicInfoRotation,true)</onunload>
+	<onunload>CancelAlarm(MusicInfoRotation,true)</onunload>
 	<controls>
 		<control type="label" id="4322">
 			<label>$INFO[Skin.String(MusicViz.MultiFanart)]</label>
@@ -70,7 +70,7 @@
 					<timeperimage>10000</timeperimage> <!-- option for time? -->
 					<aspectratio>keep</aspectratio>
 					<include>MusicVizBG</include>
-					<imagepath background="true">$INFO[Window.Property(ArtistSlideshow)]</imagepath>
+					<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
 					<visible>IsEmpty(Window.Property(ArtistSlideshowRefresh))</visible>
 					<fadetime>2000</fadetime>
 					<randomize>true</randomize>
@@ -97,6 +97,15 @@
 					<height>87</height>
 					<texture flipy="true">home/timepanel_mid.png</texture>
 					<colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
+					<visible>!Skin.HasSetting(WeatherConditionVis)</visible>
+				</control>
+				<control type="image">
+					<posx>150</posx>
+					<width>700</width>
+					<height>87</height>
+					<texture flipy="true">home/timepanel_mid.png</texture>
+					<colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
+					<visible>Skin.HasSetting(WeatherConditionVis)</visible>
 				</control>
 				<control type="label">
 					<posx>734</posx>
@@ -109,10 +118,10 @@
 					<label>[COLOR white]$INFO[System.Date(ddd)], $INFO[System.Date(d)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)]  •[/COLOR]  $INFO[System.Time]</label>
 				</control>
 				<control type="grouplist">
-					<posx>30</posx>
+					<posx>-100</posx>
 					<posy>-2</posy>
 					<width>500</width>
-					<aligny>center</aligny>
+					<align>right</align>
 					<orientation>horizontal</orientation>
 					<visible>Weather.IsFetched</visible>
 					<include>Animation_VisibleChange400</include>
@@ -141,15 +150,25 @@
 						<textcolor>white</textcolor>
 						<scroll>false</scroll>
 						<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+						<visible>!Skin.HasSetting(WeatherConditionVis)</visible>
+					</control>
+					<control type="image">
+						<height>40</height>
+						<aligny>top</aligny>
+						<width>40</width>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>white</textcolor>
+						<scroll>false</scroll>
+						<texture>weather/small/colored/$INFO[Weather.FanartCode].png</texture>
+						<visible>Skin.HasSetting(WeatherConditionVis)</visible>
 					</control>
 				</control>
 			</control>
 		</control>
 		<control type="group">
 			<include>MusicInfoModePanels</include>
-			<visible>!Window.IsVisible(musicosd)</visible>
+			<visible>!Window.IsVisible(musicosd) + Skin.HasSetting(musicvisinfomode)</visible>
 		</control>
-		
 		<control type="group">
 			<posy>854</posy>
 			<width>1920</width>
@@ -238,7 +257,7 @@
 					<posx>262</posx>
 					<posy>-243</posy>
 					<visible>Skin.HasSetting(cdartinvis)</visible>
-					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image" id="3334">
@@ -260,7 +279,7 @@
 					<posy>-205</posy>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>Hand_34</font>
+					<font>Hand_26</font>
 					<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 					<label> $INFO[MusicPlayer.AlbumArtist]</label>
 					<textcolor>black</textcolor>
@@ -273,7 +292,7 @@
 					<posx>330</posx>
 					<posy>20</posy>
 					<align>center</align>
-					<font>Hand_34</font>
+					<font>Hand_26</font>
 					<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
@@ -288,7 +307,7 @@
 					<posx>455</posx>
 					<posy>-91</posy>
 					<align>center</align>
-					<font>Hand_34</font>
+					<font>Hand_26</font>
 					<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 					<aligny>center</aligny>
 					<label>Disc $INFO[MusicPlayer.Discnumber]</label>
@@ -394,7 +413,7 @@
 						<width>388</width>
 						<height>388</height>
 						<colordiffuse>D2FFFFFF</colordiffuse>
-						<texture flipx="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+						<texture flipx="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 						<aspectratio>scale</aspectratio>
 					</control>
 					<control type="image">
@@ -694,7 +713,7 @@
 						<height>193</height>
 						<fadetime>400</fadetime>
 						<animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8308),empty.png)">Conditional</animation>
-						<texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+						<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 						<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
 						<animation effect="slide" time="400" tween="cubic" easing="inout" end="-35" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
 					</control>
@@ -886,7 +905,7 @@
 					<posx>262</posx>
 					<posy>-243</posy>
 					<visible>Skin.HasSetting(cdartinvis)</visible>
-					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -1100,7 +1119,7 @@
 				<align>right</align>
 				<scroll>true</scroll>
 				<font>Font_MainClassic2.low</font>
-				<visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+				<visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png)</visible>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
@@ -1115,7 +1134,7 @@
 				<align>right</align>
 				<scroll>true</scroll>
 				<font>Font_MainClassic2.low</font>
-				<visible>Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+				<visible>Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png)</visible>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<textcolor>$VAR[TitleColorVar]</textcolor>
 				<shadowcolor>black</shadowcolor>
@@ -1129,8 +1148,7 @@
 				<height>193</height>
 				<fadetime>400</fadetime>
 				<animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8318),empty.png)">Conditional</animation>
-				<texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
-				<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+				<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 			</control>
 			<control type="label">
 				<animation effect="slide" start="0,0" end="0,100" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
@@ -1923,16 +1941,7 @@
 				<top>60</top>
 				<width>810</width>
 				<height>410</height>
-				<control type="image" id="3678">
-					<animation effect="slide" start="0,0" end="-250,0" time="1500" tween="cubic" easing="out" delay="400" condition="Skin.HasSetting(ThirdMusicVizRecordPlayer)">Conditional</animation>
-					<left>10</left>
-					<top>10</top>
-					<width>500</width>
-					<height>317</height>
-					<aspectratio>keep</aspectratio>
-					<!--texture border="5" colordiffuse="77777777" background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture-->
-					<texture border="5" colordiffuse="77777777" background="true" fallback="qaz.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
-				</control>
+				
 				<control type="image">
 					<animation effect="slide" start="0,0" end="-250,0" time="1500" tween="cubic" easing="out" delay="400" condition="Skin.HasSetting(ThirdMusicVizRecordPlayer)">Conditional</animation>
 					<left>10</left>
@@ -1940,9 +1949,7 @@
 					<width>500</width>
 					<height>317</height>
 					<aspectratio>keep</aspectratio>
-					<!--texture border="5" colordiffuse="77777777" background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture-->
-					<texture border="5" colordiffuse="77777777" background="true" fallback="qaz.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
-					<visible>IsEmpty(Control.GetLabel(3678))</visible>
+					<texture border="5" colordiffuse="77777777" background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 				</control>
 				<control type="image">
 					<left>494</left>
@@ -2103,7 +2110,7 @@
 						<posy>65</posy>
 						<align>center</align>
 						<aligny>center</aligny>
-						<font>Hand_34</font>
+						<font>Hand_26</font>
 						<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 						<label> $INFO[MusicPlayer.AlbumArtist]</label>
 						<textcolor>black</textcolor>
@@ -2117,7 +2124,7 @@
 						<posx>370</posx>
 						<posy>330</posy>
 						<align>center</align>
-						<font>Hand_34</font>
+						<font>Hand_26</font>
 						<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 						<aligny>center</aligny>
 						<label> $INFO[MusicPlayer.Album]</label>
@@ -2493,7 +2500,7 @@
 				<width>190</width>
 				<height>250</height>
 				<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
-				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 				<colordiffuse>52FFFFFF</colordiffuse>
 				<aspectratio aligny="top">scale</aspectratio>
 			</control>
@@ -2511,7 +2518,7 @@
 				<posx>75</posx>
 				<posy>-480</posy>
 				<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola) + Substring(Control.GetLabel(7782),xy,Left)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola) + Substring(Control.GetLabel(7782),xy,Left)]</visible>
-				<texture background="true" fallback="qaz.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+				<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 				<colordiffuse>D1FFFFFF</colordiffuse>
 				<aspectratio>keep</aspectratio>
 			</control>
@@ -2592,7 +2599,7 @@
 					<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
 					<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
 				</animation>
-				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 				<colordiffuse>F5FFFFFF</colordiffuse>
 				<aspectratio aligny="center">scale</aspectratio>
 			</control>
@@ -2608,7 +2615,7 @@
 					<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
 					<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
 				</animation>
-				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 				<colordiffuse>F5FFFFFF</colordiffuse>
 				<aspectratio aligny="center">scale</aspectratio>
 			</control>
@@ -2826,7 +2833,7 @@
 				<control type="image">
 					<animation effect="fade" time="250" delay="2000">Visible</animation>
 					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
-					<texture>$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<texture>$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 					<aspectratio aligny="top">scale</aspectratio>
 				</control>
 				<control type="image">
@@ -3154,7 +3161,7 @@
 				<control type="image">
 					<animation effect="fade" time="250" delay="2000">Visible</animation>
 					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
-					<texture>$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<texture>$INFO[Window(Home).Property(SkinHelper.Player.Music.Thumb)]</texture>
 					<aspectratio aligny="top">scale</aspectratio>
 				</control>
 				<control type="image">

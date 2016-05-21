@@ -112,6 +112,7 @@
 		<onright>503</onright>
 		<onup>7000</onup>
 		<ondown condition="![Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]]">61</ondown>
+		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]]">61</ondown>  <!-- enable scrollbar when push down - by s2k -->
 		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + !IsEmpty(ListItem.Trailer)">9000</ondown>
 		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + IsEmpty(ListItem.Trailer)">7000</ondown>
 		<orientation>horizontal</orientation>
@@ -371,7 +372,7 @@
 			<width>450</width>
 			<height>400</height>
 			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[TVShowClearArtVar]</texture>
+			<texture background="true">$VAR[TVShowClearArtVar]</texture>
 		</control>
 		<control type="image">
 			<left>38</left>
@@ -379,7 +380,7 @@
 			<width>450</width>
 			<height>400</height>
 			<aspectratio aligny="top">keep</aspectratio>
-			<texture background="true" flipy="true" fallback="thumbs/fallback_episode_tp.png">$VAR[TVShowClearArtVar]</texture>
+			<texture background="true" flipy="true">$VAR[TVShowClearArtVar]</texture>
 			<animation effect="fade" start="10" end="10" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
 		</control>
 		<control type="group">

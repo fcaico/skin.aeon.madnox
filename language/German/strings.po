@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: MADNOX\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-03-12 11:46+0100\n"
+"PO-Revision-Date: 2016-04-26 08:30+0200\n"
 "Last-Translator: XBMC Translation Team\n"
 "Language-Team: schimi2k\n"
 "Language: de\n"
@@ -1825,6 +1825,66 @@ msgctxt "#31436"
 msgid "  •  Hide Repeat/Shuffle"
 msgstr "  •  Verstecke Wiederholen/Mischen"
 
+msgctxt "#31437"
+msgid "Show Playlist"
+msgstr "Zeige Wiedergabeliste"
+
+msgctxt "#31438"
+msgid "         •  Show 10 Tracks"
+msgstr "         •  10 Tracks anzeigen"
+
+msgctxt "#31439"
+msgid "         •  Move Down"
+msgstr "         •  Schiebe nach unten"
+
+msgctxt "#31440"
+msgid "         •  fade Background"
+msgstr "         •  Durchsichtiger Hintergrund"
+
+msgctxt "#31441"
+msgid "         •  Show Numbers"
+msgstr "         •  Zeige Nummern"
+
+msgctxt "#31442"
+msgid "         •  Rating/Codec Switch"
+msgstr "         •  Wechsle Bewertung/Codec"
+
+msgctxt "#31443"
+msgid "         •  Genre Text/Icons Switch"
+msgstr "         •  Wechsle Genre Text/Icons"
+
+msgctxt "#31444"
+msgid "All Oscar Winners"
+msgstr "Alle Oscar Gewinner"
+
+msgctxt "#31445"
+msgid "Best Actor"
+msgstr "Bester Schauspieler"
+
+msgctxt "#31446"
+msgid "Best Actress"
+msgstr "Beste Schauspielerin"
+
+msgctxt "#31447"
+msgid "Best Adapted Screenplay"
+msgstr "Bestes adaptiertes Drehbuch"
+
+msgctxt "#31448"
+msgid "Best Original Screenplay"
+msgstr "Bestes original Drehbuch"
+
+msgctxt "#31449"
+msgid "Best Animated Movie"
+msgstr "Bester animierter Film"
+
+msgctxt "#31450"
+msgid "Best Director"
+msgstr "Beste Regie"
+
+msgctxt "#31451"
+msgid "Best Foreign Movie"
+msgstr "Bester ausländischer Film"
+
 msgctxt "#31452"
 msgid "Not rated"
 msgstr "Nicht bewertet"
@@ -1841,6 +1901,10 @@ msgctxt "#31455"
 msgid "MovieWall: Path to movie cover folder"
 msgstr "Pfad zum Film-Cover Ordner"
 
+msgctxt "#31457"
+msgid "Best Picture"
+msgstr "Bester Film"
+
 msgctxt "#31456"
 msgid "CD-Wall: Path to CD cover folder"
 msgstr "Pfad zum CD-Cover Ordner"
@@ -1853,9 +1917,33 @@ msgctxt "#31459"
 msgid "Structure of music library"
 msgstr "Struktur des Musikordners"
 
+msgctxt "#31460"
+msgid "Best Score"
+msgstr "Beste Filmmusik"
+
+msgctxt "#31461"
+msgid "Best Supporting Actor"
+msgstr "Bester Nebendarsteller"
+
+msgctxt "#31462"
+msgid "Best Supporting Actress"
+msgstr "Beste Nebendarstellerin"
+
+msgctxt "#31463"
+msgid "Best Visual Effects"
+msgstr "Beste visuelle Effekte"
+
 msgctxt "#31464"
 msgid "Recommended episodes"
 msgstr "Empfohlen"
+
+msgctxt "#31465"
+msgid "Recent Best Picture"
+msgstr "Neuste Beste Filme"
+
+msgctxt "#31466"
+msgid "Recent Oscars"
+msgstr "Neuste Oscars"
 
 msgctxt "#31467"
 msgid "Get extrafanart"
@@ -1864,6 +1952,14 @@ msgstr "Extra-Fanart laden"
 msgctxt "#31468"
 msgid "Get extrathumbs"
 msgstr "Extra-Vorschaubilder laden"
+
+msgctxt "#31469"
+msgid "Use SkinHelper Animated Posters / Backgrounds"
+msgstr "Benutze SkinHelper Animierte Poster / Hintergründe"
+
+msgctxt "#31470"
+msgid "Large Focus Icon"
+msgstr "Großes Fokus-Symbol"
 
 msgctxt "#31477"
 msgid "TriPanel"
@@ -2322,33 +2418,49 @@ msgid "Use QuickList instead of default shutdown menu"
 msgstr ""
 "Benutze \"Schnell Navigations-Liste\" anstelle des Standard \"Power\" Menüs"
 
-msgctxt "#31437"
-msgid "Show Playlist"
-msgstr "Zeige Wiedergabeliste"
+msgctxt "#31471"
+msgid "Music Panel"
+msgstr "Music Panel"
 
-msgctxt "#31438"
-msgid "         •  Show 10 Tracks"
-msgstr "         •  10 Tracks anzeigen"
+msgctxt "#31472"
+msgid "Move Up"
+msgstr "Schiebe Nach oben"
 
-msgctxt "#31439"
-msgid "         •  Move Down"
-msgstr "         •  Schiebe nach unten"
+msgctxt "#31473"
+msgid "Show Info"
+msgstr "Zeige Info"
 
-msgctxt "#31440"
-msgid "         •  fade Background"
-msgstr "         •  Durchsichtiger Hintergrund"
+msgctxt "#31474"
+msgid "Show Genre | Style | Mood"
+msgstr "Zeige Genre | Style | Mood"
 
-msgctxt "#31441"
-msgid "         •  Show Numbers"
-msgstr "         •  Zeige Nummern"
+msgctxt "#31475"
+msgid "Round Cover"
+msgstr "Rundes Cover"
 
-msgctxt "#31442"
-msgid "         •  Rating/Codec Switch"
-msgstr "         •  Wechsle Bewertung/Codec"
+msgctxt "#31476"
+msgid "More Artist Icons"
+msgstr "Mehr Bilder Zeigen"
 
-msgctxt "#31443"
-msgid "         •  Genre Text/Icons Switch"
-msgstr "         •  Wechsle Genre Text/Icons"
+msgctxt "#31480"
+msgid "More Album Covers"
+msgstr "Mehr Covers Zeigen "
+
+msgctxt "#31481"
+msgid "Show Logo"
+msgstr "Zeige Logo"
+
+msgctxt "#31485"
+msgid "Show Banner"
+msgstr "Zeige Banner"
+
+msgctxt "#31486"
+msgid "   • On Right Side"
+msgstr "   • auf der rechten Seite"
+
+msgctxt "#31487"
+msgid "Benutze Vinyl Art"
+msgstr ""
 
 # ##########################################################################
 # skinshortcuts Locals start here
@@ -2593,10 +2705,6 @@ msgctxt "#31827"
 msgid "Widget Transparency"
 msgstr "Widget Transparenz"
 
-msgctxt "#31859"
-msgid "Show case on widget info"
-msgstr "Zeige Hülle auf Widget Info"
-
 msgctxt "#31849"
 msgid "Show case on widget info button"
 msgstr "Zeige Hülle auf Widget Info Bildschirm"
@@ -2604,6 +2712,10 @@ msgstr "Zeige Hülle auf Widget Info Bildschirm"
 msgctxt "#31858"
 msgid "Show list widget info"
 msgstr "Zeige Listen Widget Info"
+
+msgctxt "#31859"
+msgid "Show case on widget info"
+msgstr "Zeige Hülle auf Widget Info"
 
 msgctxt "#31800"
 msgid "Fade background in visualisation"
@@ -2889,6 +3001,14 @@ msgctxt "#31878"
 msgid "Click on \"Play\" buttons To preview settings"
 msgstr "Auf Play-Knöpfe drücken, um Vorschau zu erhalten"
 
+msgctxt "#31879"
+msgid "Panel Info"
+msgstr "Tafel Info"
+
+msgctxt "#31880"
+msgid "Image"
+msgstr "Bild"
+
 msgctxt "#31881"
 msgid "Click on buttons to customize them"
 msgstr "Auf Buttons klicken zum Bearbeiten"
@@ -2896,6 +3016,10 @@ msgstr "Auf Buttons klicken zum Bearbeiten"
 msgctxt "#31882"
 msgid "Disable option to hide widgets by pressing \"Back\""
 msgstr "Hauptmenü-Widgets nicht mit \"Zurück\" verstecken"
+
+msgctxt "#31883"
+msgid "Art"
+msgstr "Art"
 
 msgctxt "#31885"
 msgid "Area-specific Options"

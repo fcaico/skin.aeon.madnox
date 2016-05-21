@@ -46,6 +46,9 @@
 		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,.web-dl.)">webdl.png</value>
@@ -445,7 +448,7 @@
 		<value condition="SubString(ListItem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0) | StringCompare(ListItem.mpaa,rated 0)">FSK-0</value>
+		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0) | StringCompare(ListItem.mpaa,Rated 0)">FSK-0</value>
 		<value condition="SubString(ListItem.mpaa,Germany:6) |  SubString(ListItem.mpaa,ab 6) | !SubString(ListItem.mpaa,16) + SubString(ListItem.mpaa,6) | SubString(ListItem.mpaa,FSK 6) | StringCompare(ListItem.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12) | SubString(ListItem.mpaa,12) | SubString(ListItem.mpaa,FSK 12) | StringCompare(ListItem.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16) | SubString(ListItem.mpaa,16) | SubString(ListItem.mpaa,FSK 16) | StringCompare(ListItem.mpaa,FSK:16)">FSK-16</value>
@@ -492,7 +495,7 @@
 		<value condition="SubString(VideoPlayer.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:0) | SubString(VideoPlayer.mpaa,o.A) | StringCompare(VideoPlayer.mpaa,ab 0) | SubString(VideoPlayer.mpaa,FSK 0) | SubString(VideoPlayer.mpaa,FSK:0)">FSK-0</value>
+		<value condition="SubString(VideoPlayer.mpaa,Germany:0) | SubString(VideoPlayer.mpaa,o.A) | StringCompare(VideoPlayer.mpaa,ab 0) | SubString(VideoPlayer.mpaa,FSK 0) |  SubString(VideoPlayer.mpaa,Rated 0) |SubString(VideoPlayer.mpaa,FSK:0)">FSK-0</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:6) | !SubString(VideoPlayer.mpaa,16) + SubString(VideoPlayer.mpaa,6) | StringCompare(VideoPlayer.mpaa,ab 6) | SubString(VideoPlayer.mpaa,FSK 6) | SubString(VideoPlayer.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:12) | SubString(VideoPlayer.mpaa,12) | StringCompare(VideoPlayer.mpaa,ab 12) | SubString(VideoPlayer.mpaa,FSK 12) | SubString(VideoPlayer.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:16) | SubString(VideoPlayer.mpaa,16) | StringCompare(VideoPlayer.mpaa,ab 16) | SubString(VideoPlayer.mpaa,FSK 16) | SubString(VideoPlayer.mpaa,FSK:16)">FSK-16</value>
@@ -1747,6 +1750,7 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/video/icons/,.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(501) | Control.Isvisible(510) | Control.Isvisible(511) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -1866,6 +1870,7 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/video/icons/,.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(501) | Control.Isvisible(510) | Control.Isvisible(511) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -1966,6 +1971,9 @@
 		<value condition="SubString(Container(501).ListItem(-7).Filename, SDTV.) | SubString(Container(501).ListItem(-7).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.HDTV.) | SubString(Container(501).ListItem(-7).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename, HDTV.) | SubString(Container(501).ListItem(-7).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-7).Filename,WEBDL) | SubString(Container(501).ListItem(-7).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-7).Filename,WEBDL-) | SubString(Container(501).ListItem(-7).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-7).Filename,WEB.DL) | SubString(Container(501).ListItem(-7).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.WEBDL.) | SubString(Container(501).ListItem(-7).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename, WEBDL.) | SubString(Container(501).ListItem(-7).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-7).Filename,.web-dl.)">webdl.png</value>
@@ -1989,6 +1997,9 @@
 		<value condition="SubString(Container(501).ListItem(-6).Filename, SDTV.) | SubString(Container(501).ListItem(-6).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.HDTV.) | SubString(Container(501).ListItem(-6).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename, HDTV.) | SubString(Container(501).ListItem(-6).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-6).Filename,WEBDL) | SubString(Container(501).ListItem(-6).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-6).Filename,WEBDL-) | SubString(Container(501).ListItem(-6).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-6).Filename,WEB.DL) | SubString(Container(501).ListItem(-6).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.WEBDL.) | SubString(Container(501).ListItem(-6).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename, WEBDL.) | SubString(Container(501).ListItem(-6).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-6).Filename,.web-dl.)">webdl.png</value>
@@ -2012,6 +2023,9 @@
 		<value condition="SubString(Container(501).ListItem(-5).Filename, SDTV.) | SubString(Container(501).ListItem(-5).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.HDTV.) | SubString(Container(501).ListItem(-5).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename, HDTV.) | SubString(Container(501).ListItem(-5).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-5).Filename,WEBDL) | SubString(Container(501).ListItem(-5).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-5).Filename,WEBDL-) | SubString(Container(501).ListItem(-5).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-5).Filename,WEB.DL) | SubString(Container(501).ListItem(-5).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.WEBDL.) | SubString(Container(501).ListItem(-5).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename, WEBDL.) | SubString(Container(501).ListItem(-5).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-5).Filename,.web-dl.)">webdl.png</value>
@@ -2035,6 +2049,9 @@
 		<value condition="SubString(Container(501).ListItem(-4).Filename, SDTV.) | SubString(Container(501).ListItem(-4).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.HDTV.) | SubString(Container(501).ListItem(-4).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename, HDTV.) | SubString(Container(501).ListItem(-4).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-4).Filename,WEBDL) | SubString(Container(501).ListItem(-4).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-4).Filename,WEBDL-) | SubString(Container(501).ListItem(-4).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-4).Filename,WEB.DL) | SubString(Container(501).ListItem(-4).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.WEBDL.) | SubString(Container(501).ListItem(-4).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename, WEBDL.) | SubString(Container(501).ListItem(-4).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-4).Filename,.web-dl.)">webdl.png</value>
@@ -2058,6 +2075,9 @@
 		<value condition="SubString(Container(501).ListItem(-3).Filename, SDTV.) | SubString(Container(501).ListItem(-3).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.HDTV.) | SubString(Container(501).ListItem(-3).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename, HDTV.) | SubString(Container(501).ListItem(-3).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-3).Filename,WEBDL) | SubString(Container(501).ListItem(-3).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-3).Filename,WEBDL-) | SubString(Container(501).ListItem(-3).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-3).Filename,WEB.DL) | SubString(Container(501).ListItem(-3).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.WEBDL.) | SubString(Container(501).ListItem(-3).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename, WEBDL.) | SubString(Container(501).ListItem(-3).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-3).Filename,.web-dl.)">webdl.png</value>
@@ -2081,6 +2101,9 @@
 		<value condition="SubString(Container(501).ListItem(-2).Filename, SDTV.) | SubString(Container(501).ListItem(-2).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.HDTV.) | SubString(Container(501).ListItem(-2).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename, HDTV.) | SubString(Container(501).ListItem(-2).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-2).Filename,WEBDL) | SubString(Container(501).ListItem(-2).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-2).Filename,WEBDL-) | SubString(Container(501).ListItem(-2).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-2).Filename,WEB.DL) | SubString(Container(501).ListItem(-2).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.WEBDL.) | SubString(Container(501).ListItem(-2).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename, WEBDL.) | SubString(Container(501).ListItem(-2).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-2).Filename,.web-dl.)">webdl.png</value>
@@ -2104,6 +2127,9 @@
 		<value condition="SubString(Container(501).ListItem(-1).Filename, SDTV.) | SubString(Container(501).ListItem(-1).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.HDTV.) | SubString(Container(501).ListItem(-1).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename, HDTV.) | SubString(Container(501).ListItem(-1).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-1).Filename,WEBDL) | SubString(Container(501).ListItem(-1).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-1).Filename,WEBDL-) | SubString(Container(501).ListItem(-1).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(-1).Filename,WEB.DL) | SubString(Container(501).ListItem(-1).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.WEBDL.) | SubString(Container(501).ListItem(-1).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename, WEBDL.) | SubString(Container(501).ListItem(-1).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.WEB-DL.) | SubString(Container(501).ListItem(-1).Filename,.web-dl.)">webdl.png</value>
@@ -2127,6 +2153,9 @@
 		<value condition="SubString(Container(501).ListItem(0).Filename, SDTV.) | SubString(Container(501).ListItem(0).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.HDTV.) | SubString(Container(501).ListItem(0).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename, HDTV.) | SubString(Container(501).ListItem(0).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(0).Filename,WEBDL) | SubString(Container(501).ListItem(0).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(0).Filename,WEBDL-) | SubString(Container(501).ListItem(0).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(0).Filename,WEB.DL) | SubString(Container(501).ListItem(0).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.WEBDL.) | SubString(Container(501).ListItem(0).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename, WEBDL.) | SubString(Container(501).ListItem(0).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.WEB-DL.) | SubString(Container(501).ListItem(0).Filename,.web-dl.)">webdl.png</value>
@@ -2150,6 +2179,9 @@
 		<value condition="SubString(Container(501).ListItem(1).Filename, SDTV.) | SubString(Container(501).ListItem(1).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.HDTV.) | SubString(Container(501).ListItem(1).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename, HDTV.) | SubString(Container(501).ListItem(1).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(1).Filename,WEBDL) | SubString(Container(501).ListItem(1).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(1).Filename,WEBDL-) | SubString(Container(501).ListItem(1).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(1).Filename,WEB.DL) | SubString(Container(501).ListItem(1).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.WEBDL.) | SubString(Container(501).ListItem(1).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename, WEBDL.) | SubString(Container(501).ListItem(1).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.WEB-DL.) | SubString(Container(501).ListItem(1).Filename,.web-dl.)">webdl.png</value>
@@ -2173,6 +2205,9 @@
 		<value condition="SubString(Container(501).ListItem(2).Filename, SDTV.) | SubString(Container(501).ListItem(2).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.HDTV.) | SubString(Container(501).ListItem(2).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename, HDTV.) | SubString(Container(501).ListItem(2).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(2).Filename,WEBDL) | SubString(Container(501).ListItem(2).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(2).Filename,WEBDL-) | SubString(Container(501).ListItem(2).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(2).Filename,WEB.DL) | SubString(Container(501).ListItem(2).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.WEBDL.) | SubString(Container(501).ListItem(2).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename, WEBDL.) | SubString(Container(501).ListItem(2).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.WEB-DL.) | SubString(Container(501).ListItem(2).Filename,.web-dl.)">webdl.png</value>
@@ -2196,6 +2231,9 @@
 		<value condition="SubString(Container(501).ListItem(3).Filename, SDTV.) | SubString(Container(501).ListItem(3).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.HDTV.) | SubString(Container(501).ListItem(3).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename, HDTV.) | SubString(Container(501).ListItem(3).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(3).Filename,WEBDL) | SubString(Container(501).ListItem(3).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(3).Filename,WEBDL-) | SubString(Container(501).ListItem(3).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(3).Filename,WEB.DL) | SubString(Container(501).ListItem(3).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.WEBDL.) | SubString(Container(501).ListItem(3).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename, WEBDL.) | SubString(Container(501).ListItem(3).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.WEB-DL.) | SubString(Container(501).ListItem(3).Filename,.web-dl.)">webdl.png</value>
@@ -2219,6 +2257,9 @@
 		<value condition="SubString(Container(501).ListItem(4).Filename, SDTV.) | SubString(Container(501).ListItem(4).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.HDTV.) | SubString(Container(501).ListItem(4).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename, HDTV.) | SubString(Container(501).ListItem(4).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(4).Filename,WEBDL) | SubString(Container(501).ListItem(4).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(4).Filename,WEBDL-) | SubString(Container(501).ListItem(4).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(4).Filename,WEB.DL) | SubString(Container(501).ListItem(4).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.WEBDL.) | SubString(Container(501).ListItem(4).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename, WEBDL.) | SubString(Container(501).ListItem(4).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.WEB-DL.) | SubString(Container(501).ListItem(4).Filename,.web-dl.)">webdl.png</value>
@@ -2242,6 +2283,9 @@
 		<value condition="SubString(Container(501).ListItem(5).Filename, SDTV.) | SubString(Container(501).ListItem(5).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.HDTV.) | SubString(Container(501).ListItem(5).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename, HDTV.) | SubString(Container(501).ListItem(5).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(5).Filename,WEBDL) | SubString(Container(501).ListItem(5).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(5).Filename,WEBDL-) | SubString(Container(501).ListItem(5).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(5).Filename,WEB.DL) | SubString(Container(501).ListItem(5).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.WEBDL.) | SubString(Container(501).ListItem(5).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename, WEBDL.) | SubString(Container(501).ListItem(5).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.WEB-DL.) | SubString(Container(501).ListItem(5).Filename,.web-dl.)">webdl.png</value>
@@ -2265,6 +2309,9 @@
 		<value condition="SubString(Container(501).ListItem(6).Filename, SDTV.) | SubString(Container(501).ListItem(6).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.HDTV.) | SubString(Container(501).ListItem(6).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename, HDTV.) | SubString(Container(501).ListItem(6).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(6).Filename,WEBDL) | SubString(Container(501).ListItem(6).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(6).Filename,WEBDL-) | SubString(Container(501).ListItem(6).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(6).Filename,WEB.DL) | SubString(Container(501).ListItem(6).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.WEBDL.) | SubString(Container(501).ListItem(6).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename, WEBDL.) | SubString(Container(501).ListItem(6).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.WEB-DL.) | SubString(Container(501).ListItem(6).Filename,.web-dl.)">webdl.png</value>
@@ -2288,6 +2335,9 @@
 		<value condition="SubString(Container(501).ListItem(7).Filename, SDTV.) | SubString(Container(501).ListItem(7).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.HDTV.) | SubString(Container(501).ListItem(7).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename, HDTV.) | SubString(Container(501).ListItem(7).Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(7).Filename,WEBDL) | SubString(Container(501).ListItem(7).Filename,webdl)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(7).Filename,WEBDL-) | SubString(Container(501).ListItem(7).Filename,webdl-)">webdl.png</value>
+		<value condition="SubString(Container(501).ListItem(7).Filename,WEB.DL) | SubString(Container(501).ListItem(7).Filename,web.dl)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.WEBDL.) | SubString(Container(501).ListItem(7).Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename, WEBDL.) | SubString(Container(501).ListItem(7).Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.WEB-DL.) | SubString(Container(501).ListItem(7).Filename,.web-dl.)">webdl.png</value>
@@ -2539,6 +2589,8 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
+		<!--value condition="Skin.HasSetting(SkinHelperAnimations)">http://localhost:52307/getanimatedposter&amp;imdbid=$INFO[Listitem.IMDBNumber]&amp;fallback=$INFO[Listitem.Art(poster)]</value-->
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2551,6 +2603,7 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2562,6 +2615,7 @@
 	<variable name="ListPosterBackupVar">
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -3620,7 +3674,7 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:0) |SubString(Container(5801).Listitem.mpaa,ab 0) | SubString(Container(5801).Listitem.mpaa,o.A) | SubString(Container(5801).Listitem.mpaa,FSK 0) | SubString(Container(5801).Listitem.mpaa,FSK:0)">FSK-0</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:0) |SubString(Container(5801).Listitem.mpaa,ab 0) | SubString(Container(5801).Listitem.mpaa,o.A) |SubString(Container(5801).Listitem.mpaa,Rated 0) | SubString(Container(5801).Listitem.mpaa,FSK 0) | SubString(Container(5801).Listitem.mpaa,FSK:0)">FSK-0</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6) |SubString(Container(5801).Listitem.mpaa,ab 6) | !SubString(Container(5801).Listitem.mpaa,16) + SubString(Container(5801).Listitem.mpaa,6) | SubString(Container(5801).Listitem.mpaa,FSK 6) | SubString(Container(5801).Listitem.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:12) |SubString(Container(5801).Listitem.mpaa,ab 12) | SubString(Container(5801).Listitem.mpaa,12) | SubString(Container(5801).Listitem.mpaa,FSK 12) | SubString(Container(5801).Listitem.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:16) |SubString(Container(5801).Listitem.mpaa,ab 16) | SubString(Container(5801).Listitem.mpaa,16) | SubString(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,FSK:16)">FSK-16</value>
@@ -3737,6 +3791,9 @@
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvd.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdl.png</value>
@@ -3757,6 +3814,9 @@
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtvhand.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvdhand.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">common/discart/webdlhand.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">common/discart/webdlhand.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">common/discart/webdlhand.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdlhand.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdlhand.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdlhand.png</value>
@@ -3777,6 +3837,9 @@
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtvhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvdhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">common/discart/webdlhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdlhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdlhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdlhandcolor.png</value>
@@ -3803,6 +3866,9 @@
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvd.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdl.png</value>
@@ -4078,6 +4144,9 @@
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hddvd)">common/discart/hddvd.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),WEBDL) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),webdl)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),WEBDL-) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),webdl-)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),WEB.DL) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),web.dl)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),web-dl.)">common/discart/webdl.png</value>
@@ -4096,6 +4165,9 @@
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hddvd)">common/discart/hddvd.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),WEBDL) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),webdl)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),WEBDL-) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),webdl-)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),WEB.DL) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),web.dl)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),web-dl.)">common/discart/webdl.png</value>
@@ -4114,6 +4186,9 @@
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hddvd)">common/discart/hddvd.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),WEBDL) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),webdl)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),WEBDL-) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),webdl-)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),WEB.DL) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),web.dl)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), webdl.)">common/discart/webdl.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),web-dl.)">common/discart/webdl.png</value>
@@ -4754,6 +4829,9 @@
 		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>-->
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL) | SubString(ListItem.Filename,webdl)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEB.DL) | SubString(ListItem.Filename,web.dl)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,WEBDL-) | SubString(ListItem.Filename,webdl-)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,.web-dl.)">webdl.png</value>
@@ -4762,7 +4840,7 @@
 		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">4k.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
 		<value condition="!IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
-		<value condition="IsEmpty(ListItem.VideoResolution) + !IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
 		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + [!IsEmpty(ListItem.Trailer) | SubString(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
 		<value>p.png</value>
 	</variable>
@@ -4847,6 +4925,7 @@
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),episodes)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.SubTitle)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.DBID)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),sets)">plugin://script.skin.helper.service/?action=getcast&amp;movieset=$INFO[Window(Home).Property(Widget.DBID)]</value>
 	</variable>
 
 	<!-- Featured dialog variables -->
@@ -5413,5 +5492,56 @@
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Tagline]</value>
 		<value condition="VideoPlayer.Content(episodes)">S$VAR[VideoSeasonVar]E$VAR[VideoEpisodeVar] - $INFO[VideoPlayer.Title]</value>
 	</variable>
-
+	<!-- Music Genre/Style/Mood/Playcount-->
+	<variable name="MusicInfoLabel1Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Genre)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel2Var">
+		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Style)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Style)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel3Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Mood)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Mood)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value><value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel1Var">
+		<value condition="Container.Content(songs)">Duration : </value>
+		<value condition="Container.Content(addons)">$LOCALIZE[21863] : </value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel2Var">
+		<value condition="Container.Content(songs)">Playcount : </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Style : </value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel3Var">
+		<value condition="Container.Content(songs)">Last Played : </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Mood : </value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="AcademyAward">
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestpicture.xsp)">PICTURE</value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestdirector.xsp)">DIRECTOR</value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestactor.xsp)">ACTOR</value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestactress.xsp)">ACTRESS</value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestsuppactor.xsp)"> SUP.ACTOR </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestsuppactress.xsp)"> SUP.ACTRESS </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestvisualeffects.xsp)"> VISUAL EFFECTS </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestanimated.xsp)"> ANIMATED </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestscore.xsp)">SCORE</value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestoriginalscreenplay.xsp)"> ORIG.SCREENPLAY </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestadaptedscreenplay.xsp)"> ADAPT.SCREENPLAY </value>
+		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestforeign.xsp)">FOREIGN</value>
+	</variable>
 </includes>

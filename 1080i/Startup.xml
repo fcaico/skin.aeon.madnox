@@ -8,7 +8,7 @@
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
 	<!-- Intro Movie -->
 	<onload condition="!Skin.HasSetting(DisableIntro)">PlayMedia(special://skin/extras/intro.mp4,1)</onload>
-	<onunload>PlayerControl(Stop)</onunload>
+	<!--onunload>PlayerControl(Stop)</onunload-->
 	<!-- Intro End -->
 	<onunload>Skin.SetString(SkinHelper.RandomFanartDelay,7)</onunload>
 	<animation type="WindowClose" reversible="false">
@@ -53,13 +53,13 @@
 			<visible>Skin.HasSetting(DisableIntro)</visible>
 		</control>
 		<control type="image">
-			<left>708</left>
-			<top>300</top>
-			<width>512</width>
-			<height>180</height>
-			<aspectratio>keep</aspectratio>
+			<left>560</left>
+			<top>220</top>
+			<width>800</width>
+			<height>260</height>
+			<aspectratio scalediffuse="false" alignx="center">keep</aspectratio>
 			<texture>KODI_Logo.png</texture>
-			<colordiffuse>white</colordiffuse>
+			<!-- <colordiffuse>white</colordiffuse> -->
 			<visible>Skin.HasSetting(DisableIntro)</visible>
 		</control>
 		<control type="videowindow">

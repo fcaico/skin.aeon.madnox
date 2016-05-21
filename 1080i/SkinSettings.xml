@@ -217,6 +217,13 @@
 						<onclick>Skin.ToggleSetting(NewViewSelector)</onclick>
 						<selected>Skin.HasSetting(NewViewSelector)</selected>
 					</control>
+					<control type="radiobutton" id="17114">
+						<include>Default_SettingRadioButton</include>
+						<label>31469</label>
+						<onclick>Skin.ToggleSetting(SkinHelperAnimations)</onclick>
+						<selected>Skin.HasSetting(SkinHelperAnimations)</selected>
+					</control>
+					
 				</control>
 				<control type="grouplist" id="9002">
 					<left>387</left>
@@ -283,7 +290,7 @@
 					<control type="button" id="455">
 						<label>$LOCALIZE[31961]</label>
 						<include>Default_SettingButton</include>
-						<onclick>SetProperty(FeaturedSetup,true,home)</onclick>
+						<onclick>SetProperty(FeaturedSetup,true,Home)</onclick>
 						<onclick>ActivateWindow(1147)</onclick>
 					</control>
 					<control type="button" id="454">

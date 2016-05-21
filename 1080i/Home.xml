@@ -7,6 +7,10 @@
 	<onload>Skin.SetString(SkinHelper.RandomFanartDelay,7)</onload>
 	<onload>ClearProperty(DontRunTVShowScripts,Home)</onload>
 	<onload condition="!Skin.HasSetting(backendmode)">Skin.SetBool(backendmode)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
+	<onload>Skin.SetBool(SkinHelper.EnableAddonsLookups)</onload>
+	<onunload>ClearProperty(SkinHelper.WidgetContainer,home)</onunload>
+	<onunload>ClearProperty(Widget.CaseHome,home)</onunload>
 	<controls>
 		<control type="label" id="4323">
 			<label>$VAR[LibraryStatsVar]</label>
@@ -157,7 +161,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true" fallback="common/cdart/blank.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="label">
@@ -177,7 +181,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
 					<textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -198,7 +202,7 @@
 					<posy>1183</posy>
 					<align>center</align>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
 					<textcolor>black</textcolor>
@@ -295,7 +299,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true" fallback="common/cdart/blank.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="label">
@@ -315,7 +319,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png)</visible>
+					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
 					<textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -336,7 +340,7 @@
 					<posy>1170</posy>
 					<align>center</align>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png)</visible>
+					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
 					<textcolor>black</textcolor>
@@ -551,13 +555,13 @@
 						<visible>Player.HasMedia + System.IdleTime(8)</visible>
 						<animation effect="fade" end="100" time="840">Visible</animation>
 					</control>
-					<include condition="Skin.HasSetting(mainmenufixedlist)">MainMenuFixedList</include>
-					<include condition="!Skin.HasSetting(mainmenufixedlist)">MainMenuWrapList</include>
 					<control type="group">
 						<animation effect="zoom" end="125,99" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(smallermainmenu)">Conditional</animation>
 						<include>Furniture_ClassicHomeGradient</include>
 						<include>Neon_Home</include>
 					</control>
+						<include condition="Skin.HasSetting(mainmenufixedlist)">MainMenuFixedList</include>
+						<include condition="!Skin.HasSetting(mainmenufixedlist)">MainMenuWrapList</include>
 				</control>
 			</control>
 		</control>
@@ -694,7 +698,7 @@
 					<width>500</width>
 					<height>4</height>
 					<texture>views/list_divider.png</texture>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="-1250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>
@@ -703,7 +707,7 @@
 					<width>500</width>
 					<height>4</height>
 					<texture>views/list_divider.png</texture>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image" id="8318">
 					<posx>0</posx>
@@ -711,13 +715,13 @@
 					<width>250</width>
 					<fadetime>400</fadetime>
 					<animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8318),empty.png)">Conditional</animation>
-					<texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+					<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 					<aspectratio aligny="center" align="left">keep</aspectratio>
-					<visible>Skin.HasSetting(BelowMidLogo) + !IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+					<visible>Skin.HasSetting(BelowMidLogo)</visible>
 					<animation effect="slide" time="560" start="-270,15" end="0,0" tween="back" easing="inout">VisibleChange</animation>
 				</control>
 				<control type="label">
-					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
+					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>790</width>
@@ -728,7 +732,7 @@
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<textcolor>$VAR[TitleColorVar]</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="-250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>

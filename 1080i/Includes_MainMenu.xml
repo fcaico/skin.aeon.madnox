@@ -75,6 +75,19 @@
 		</itemlayout>
 		<focusedlayout height="225" width="250" condition="Skin.HasSetting(mainmenuicons)">
 			<control type="group">
+				<visible>Skin.HasSetting(MenuLargeicons)</visible>
+				<animation effect="zoom" start="50" end="100" center="296,108" delay="160" tween="back" time="240">Focus</animation>
+				<control type="image">
+					<left>214</left>
+					<top>5</top>
+					<width>160</width>
+					<height>160</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<!-- <colordiffuse>$VAR[MainMenuFontColorVar]</colordiffuse> -->
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(MenuLargeicons)</visible>
 				<animation effect="zoom" start="80" end="100" center="296,108" delay="160" tween="back" time="240">Focus</animation>
 				<control type="image">
 					<left>252</left>
@@ -162,8 +175,8 @@
 
 		<itemlayout width="230" height="50">
 			<control type="label">
-				<left>0</left>
-				<width>224</width>
+				<left>1</left>
+				<width>194</width>
 				<height>50</height>
 				<align>center</align>
 				<label>$INFO[ListItem.Label]</label>
@@ -173,26 +186,26 @@
 		</itemlayout>
 		<focusedlayout width="230" height="50">
 			<control type="label">
-				<left>0</left>
-				<width>224</width>
-				<height>50</height>
+				<left>10</left>
+				<width>202</width>
+				<height>52</height>
 				<align>center</align>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font_Reg28_Caps</font>
 				<textcolor>grey2</textcolor>
-				<animation effect="zoom" center="112,25" start="100" end="130" time="160" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="112,25" start="100" end="120" time="160" tween="quadratic">Focus</animation>
 				<animation effect="zoom" center="112,25" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
 				<scroll>true</scroll>
 			</control>
 			<control type="label">
-				<left>0</left>
-				<width>224</width>
-				<height>50</height>
+				<left>10</left>
+				<width>202</width>
+				<height>52</height>
 				<align>center</align>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font_Reg28_Caps</font>
 				<textcolor>$VAR[HomeMenuTextFocusVar]</textcolor>
-				<animation effect="zoom" center="112,25" start="100" end="130" time="160" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="112,25" start="100" end="120" time="160" tween="quadratic">Focus</animation>
 				<animation effect="zoom" center="112,25" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
 				<scroll>true</scroll>
 				<include>Animation_VisibleChange200</include>
